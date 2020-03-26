@@ -70,23 +70,37 @@ function Form() {
 		<form>
 			<label htmlFor="name">
 				Name:
-				<input id="name" type="text" name="name" />
+				<input
+					id="name"
+					type="text"
+					name="name"
+					value={formState.name}
+					onChange={inputChange}
+				/>
 			</label>
 			<br />
 
 			<label htmlFor="email">
 				Email:
-				<input id="email" type="text" name="email" />
+				<input id="email" type="text" name="email" onChange={inputChange} />
+				{errors.email.length > 0 ? ( //don't really understand this
+					<p className="error"> {errors.email}</p>
+				) : null}
 			</label>
 			<br />
 
 			<label htmlFor="password">
 				Password:
-				<input type="text" name="password" />
+				<input type="text" name="password" onChange={inputChange} />
 			</label>
 			<br />
 			<label htmlFor="terms" className="terms">
-				<input type="checkbox" name="terms" checked={false} />
+				<input
+					type="checkbox"
+					name="terms"
+					checked={false}
+					onChange={inputChange}
+				/>
 				Terms and Conditions
 			</label>
 
