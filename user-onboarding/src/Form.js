@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
-import axios from 'axios';
+//import axios from 'axios';
 
 const formSchema = yup.object().shape({
 	name: yup.string().required('Name is required'),
@@ -54,6 +54,18 @@ function Form() {
 				});
 			});
 	};
+
+	const inputChange = e => {
+		e.persist();
+		const newFormData = {
+			...formState,
+			[e.target.name]:
+				e.target.type === 'checkbox' ? e.target.checked : e.target.value
+		};
+		validateChange(e);
+		setFormState(newFormData);
+	};
+
 	return (
 		<form>
 			<label htmlFor="name">
