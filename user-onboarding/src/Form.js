@@ -58,6 +58,25 @@ function Form() {
 			});
 	};
 
+	const formSubmit = e => {
+		e.preventDefault();
+		axios
+			.post('https://reqres.in/api/users', formState)
+			.then(response => {
+				setPost(response.data);
+				console.log('success', post);
+
+				setFormState({
+					name: '',
+					email: '',
+					password: '',
+					terms: ''
+				});
+			})
+			.catch(err => {
+				console.log(err.response);
+			});
+	};
 	const inputChange = e => {
 		e.persist();
 		const newFormData = {
@@ -67,14 +86,6 @@ function Form() {
 		};
 		validateChange(e);
 		setFormState(newFormData);
-	};
-
-	const formSubmit = e => {
-		e.preventDefault();
-		axios.post('https://reqres.in/api/users', formState).then(response => {
-			setPost(response.data);
-			console.log('success', post);
-		});
 	};
 
 	return (
@@ -126,11 +137,12 @@ function Form() {
 				<input
 					type="checkbox"
 					name="terms"
-					checked={setFormState.terms}
+					checked={formState.terms}
 					onChange={inputChange}
 				/>
 				Terms and Conditions
 			</label>
+			<pre>{JSON.stringify(post, null, 2)}</pre>
 
 			<button className="button" disabled={buttonDisabled}>
 				Submit!
