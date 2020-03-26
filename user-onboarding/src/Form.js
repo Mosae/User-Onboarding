@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+import * as yup from 'yup';
+import axios from 'axios';
 
 function Form() {
+	//set up state for form inputs
+
+	const [formState, setFormState] = useState({
+		name: '',
+		email: '',
+		password: ''
+	});
+	// state for  errors
+
+	const [erros, setErrors] = useState({
+		name: '',
+		email: '',
+		password: ''
+	});
 	return (
 		<form>
 			<label htmlFor="name">
