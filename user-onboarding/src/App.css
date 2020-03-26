@@ -7,11 +7,35 @@
   pointer-events: none;
 }
 
+form {
+  background-color: #1883e7;
+  border: 3px dashed gray;
+  padding: 5%;
+
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+input {
+  width: 70%;
+  margin: 7px 0 0;
+  display: block;
+  border: 1px solid gray;
+  border-radius: 3px;
+  height: 25px;
+}
+
 .button {
   background-color: #61d81b;
   color: white;
   font-size: 1.2rem;
   margin-left: 10px;
+  border: 1px solid gray;
 }
 
 button:hover {
@@ -23,7 +47,7 @@ button:hover {
 button:disabled {
   background-image: none;
   background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(90, 86, 86, 0.1);
   color: rgba(0, 0, 0, 0.1);
   cursor: not-allowed;
 }
