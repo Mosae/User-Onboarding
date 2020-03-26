@@ -2,21 +2,33 @@ import React, { useState } from 'react';
 import * as yup from 'yup';
 import axios from 'axios';
 
+const formSchema = yup.object().shape({
+	name: yup.string().required('Name is required'),
+	email: yup
+		.string()
+		.email('Must be a valid email address.')
+		.required('Must include email address.'),
+	password: yup.string().required('Please enter password'),
+	terms: yup.boolean().oneOf([true], 'Please agree to terms of use')
+});
 function Form() {
 	//set up state for form inputs
 
 	const [formState, setFormState] = useState({
 		name: '',
 		email: '',
-		password: ''
+		password: '',
+		terms: ''
 	});
 	// state for  errors
 
 	const [erros, setErrors] = useState({
 		name: '',
 		email: '',
-		password: ''
+		password: '',
+		terms: ''
 	});
+	const [buttonDisabled, setButtonDisabled] = useState(true);
 	return (
 		<form>
 			<label htmlFor="name">
@@ -41,7 +53,7 @@ function Form() {
 				Terms and Conditions
 			</label>
 
-			<button className="button" disabled={true}>
+			<button className="button" disabled={buttonDisabled}>
 				Submit!
 			</button>
 		</form>
