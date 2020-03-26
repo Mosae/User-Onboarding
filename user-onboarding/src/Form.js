@@ -22,7 +22,7 @@ function Form() {
 	});
 	// state for  errors
 
-	const [erros, setErrors] = useState({
+	const [errors, setErrors] = useState({
 		name: '',
 		email: '',
 		password: '',
@@ -36,6 +36,24 @@ function Form() {
 			setButtonDisabled(!valid);
 		});
 	}, [formState]);
+
+	const validateChange = e => {
+		yup
+			.reach(formSchema, e.target.name)
+			.validate(e.target.value)
+			.then(valid => {
+				setErrors({
+					...errors,
+					[e.target.name]: ''
+				});
+			})
+			.catch(err => {
+				setErrors({
+					...errors,
+					[e.target.name]: err.errors
+				});
+			});
+	};
 	return (
 		<form>
 			<label htmlFor="name">
