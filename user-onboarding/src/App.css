@@ -9,7 +9,7 @@
 
 form {
   background-color: #1883e7;
-  border: 3px dashed gray;
+  border: 3px dashed gold;
   padding: 5%;
 
 }
@@ -52,6 +52,22 @@ button:disabled {
   cursor: not-allowed;
 }
 
+.terms {
+  display: inline-block;
+  color: gold;
+}
+
+.terms input {
+  width: 25px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.error {
+  font-size: 1.5rem;
+  color: red;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -59,7 +75,10 @@ button:disabled {
 }
 
 .App-header {
-  background-color: #0f47b8;
+  /* background-color: #0f47b8; */
+  background-image: url('https://images.unsplash.com/photo-1552770687-655f35ecf8b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
