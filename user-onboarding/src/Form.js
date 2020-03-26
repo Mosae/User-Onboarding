@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
 import axios from 'axios';
 
@@ -29,6 +29,13 @@ function Form() {
 		terms: ''
 	});
 	const [buttonDisabled, setButtonDisabled] = useState(true);
+
+	useEffect(() => {
+		// pass entire state into the schema to validate user input before allowing user to submit
+		formSchema.isValid(formState).then(valid => {
+			setButtonDisabled(!valid);
+		});
+	}, [formState]);
 	return (
 		<form>
 			<label htmlFor="name">
