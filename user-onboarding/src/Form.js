@@ -20,6 +20,14 @@ function Form() {
 				<input type="text" name="password" />
 			</label>
 			<br />
+			<label htmlFor="terms" className="terms">
+				<input type="checkbox" name="terms" checked={false} />
+				Terms and Conditions
+			</label>
+
+			<button className="button" disabled={true}>
+				Submit!
+			</button>
 		</form>
 	);
 }

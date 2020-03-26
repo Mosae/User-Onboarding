@@ -7,6 +7,13 @@
   pointer-events: none;
 }
 
+.button {
+  background-color: #61d81b;
+  color: white;
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -14,7 +21,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #0f47b8;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,6 +39,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
