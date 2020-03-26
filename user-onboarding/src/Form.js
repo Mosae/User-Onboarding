@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
-//import axios from 'axios';
+import axios from 'axios';
 
 const formSchema = yup.object().shape({
 	name: yup.string().required('Name is required'),
@@ -29,6 +29,9 @@ function Form() {
 		terms: ''
 	});
 	const [buttonDisabled, setButtonDisabled] = useState(true);
+
+	//new state to set post request
+	const [post, setPost] = useState([]);
 
 	useEffect(() => {
 		// pass entire state into the schema to validate user input before allowing user to submit
@@ -66,8 +69,16 @@ function Form() {
 		setFormState(newFormData);
 	};
 
+	const formSubmit = e => {
+		e.preventDefault();
+		axios.post('https://reqres.in/api/users', formState).then(response => {
+			setPost(response.data);
+			console.log('success', post);
+		});
+	};
+
 	return (
-		<form>
+		<form onSubmit={formSubmit}>
 			<label htmlFor="name">
 				Name:
 				<input
