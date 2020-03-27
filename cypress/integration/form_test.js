@@ -9,5 +9,8 @@ describe('Testing our form inputs', function() {
 		cy.get('input[name="email"] ')
 			.type('email@email.com')
 			.should('have.value', 'email@email.com');
+		cy.get('input[name="password"]')
+			.type('password')
+			.should('have.value', 'password');
 	});
 });
