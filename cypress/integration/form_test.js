@@ -12,5 +12,7 @@ describe('Testing our form inputs', function() {
 		cy.get('input[name="password"]')
 			.type('password')
 			.should('have.value', 'password');
+		cy.get('[type="checkbox"]').check();
+		cy.get('button').click();
 	});
 });
