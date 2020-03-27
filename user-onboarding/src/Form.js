@@ -64,7 +64,7 @@ function Form() {
 			.post('https://reqres.in/api/users', formState)
 			.then(response => {
 				setPost(response.data);
-				console.log('success', post);
+				//console.log('success', post);
 
 				setFormState({
 					name: '',

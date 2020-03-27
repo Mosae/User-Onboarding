@@ -75,7 +75,7 @@ button:disabled {
 }
 
 .App-header {
-  /* background-color: #0f47b8; */
+
   background-image: url('https://images.unsplash.com/photo-1552770687-655f35ecf8b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80');
   background-repeat: no-repeat;
   background-size: cover;
